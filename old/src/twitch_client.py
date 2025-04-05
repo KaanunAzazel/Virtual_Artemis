@@ -12,6 +12,7 @@ class TwitchClient:
         self.token = None
 
     async def authenticate(self):
+        # Test created to validate the authentication token
         url = f'https://id.twitch.tv/oauth2/token?client_id={ID_CLIENT}&client_secret={SECRET_CLIENT}&grant_type=client_credentials'
         # Use aiohttp to make an asynchronous POST request
         async with aiohttp.ClientSession() as session:
@@ -30,3 +31,30 @@ class TwitchClient:
             async with session.get(url, headers=headers) as resp:
                 data = await resp.json()
                 return data.get("data", [])
+
+    async def get_all_tags_id(self):
+        url = f'https://api.twitch.tv/helix/tags/streams'
+        headers = {
+            "Authorization": f"Bearer {self.token}",
+            "Client-Id": ID_CLIENT
+        }
+
+        list_tags = ["VtuberBR", "Vtuber", "Português", "pt", "Brasil"]
+        tag_dict = {}
+
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url, headers=headers) as resp:
+                data = await resp.json()
+
+                for tag in data["data"]:
+                    if tag["name"] in list_tags:
+                        tag_dict[tag["name"]] = tag["tag_id"]
+
+                pagination = data.get("pagination", {})
+                cursor = pagination.get("cursor")
+                if cursor:
+                    url = f"https://api.twitch.tv/helix/tags/streams?first=100&after={cursor}"
+                else:
+                    url = None
+
+        return tag_dict
