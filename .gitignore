@@ -172,3 +172,8 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+/Opera GX Stable
+/twitch_profile
+/chrome-profile
+/twitch_profile_firefox

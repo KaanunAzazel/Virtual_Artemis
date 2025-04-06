@@ -1,0 +1,33 @@
+[
+    {
+      "name": "auth-token",
+      "value": "01grevic89vrpiy3yk84oeqwbqv27u",
+      "domain": ".twitch.tv",
+      "path": "/",
+      "expires": 1788739801,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "login",
+      "value": "kaanun",
+      "domain": ".twitch.tv",
+      "path": "/",
+      "expires": 1788739801,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "twilight-user",
+      "value": "{\"authToken\":\"01grevic89vrpiy3yk84oeqwbqv27u\",\"displayName\":\"Kaanun\",\"id\":\"530753278\",\"login\":\"kaanun\",\"roles\":{\"isStaff\":false},\"version\":2}",
+      "domain": ".twitch.tv",
+      "path": "/",
+      "expires": 1788739801,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    }
+  ]
+  

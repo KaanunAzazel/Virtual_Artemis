@@ -1,0 +1,4 @@
+Onde parei:
+
+- O sistema não tá reconhecendo mais de 30 lives por conta do login
+- As tags não são verdadeiramente todas descritas em live
